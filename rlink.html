@@ -2568,20 +2568,16 @@
 </script>
 <script>
     function copy(btn_id, value_id) {
-        var btn = document.getElementById(btn_id);
-        var clipboard = new ClipboardJS(btn, {
-            //绑定元素id
-            text: function () {
-                var str = document.getElementById(value_id).innerHTML;
-                return str;
-            },
-        });
-        clipboard.on("success", function (e) {
-            btn.innerHTML = "已复制";
-        });
-        clipboard.on("error", function (e) {
-            alert(e);
-        });
+        navigator.clipboard.writeText(document.getElementById(value_id).innerText)
+            .then(
+                function () {
+                    console.log('复制成功');
+                    document.getElementById(btn_id).innerHTML = '已复制';
+                }, function (e) {
+                    console.log(e);
+                    console.log('复制失败');
+                    alert(e);
+                });
     }
 </script>
 <script src="js/crypto-js.min.js"></script>
@@ -2601,7 +2597,7 @@
 </script>
 <!-- data-->
 <script>
-    const mainText = "Idoh7wi/16pPQVkCJfM6eTwc7SWb3CL+a2Xf3CLEpgxggkKHlePOOsbxiisFCCZI9i/HXdeFenwufmeQ/ovK1dp5/V28+naXTOv3YpOtFjXgz8yRpgn1aoTmxzrZK86R3BMJrlLD5acAfG2InW8DN+YoUZH4qrAafbXPFQ3RTNPWvprSxt9L6VQXxridTOh1eHabxkZvIZBl1+tVj7M1G04oHaySbJUsoaXWq5sesufG3BP7TWgzvkJSSAdXn7yX55TCN4pvBw0xE8qqTVGbG5XrzZf42qtKSGuzEggmJ1BEcbkIaLkz/Niwy7bSzs4snk+JVZwXY500wfMMv7gBKi/EWqbjKpSyNoFegCZEqCRGaf9BDIoCMJJkDrqjbP35pM6Sp1GLJfM3sgDXbXoBLHVETD6NV42jzanlyBi8iY7f+JPOp/jSCsURwntMDF8RPlKhgi/WZtNF/CPtsIuteBRe7Jh3reGBy/RnTVhNGEF5DIKobb+FpnI0K0dcuvdpAUUzQDcwPc8DMWNd9Z676KGnpXZWI6FUI7Bgf3z+2nSO+nOiSkvVoaN3jgymHqow7k0IpgWu8Hup0t27px8dtyX3EVpyX4g+D/wlD7A14XvkwtCdWqqeIsXsrcYmdA7zILY8mRpNZmahZpjDrbqNLq0dz/S7Klu0A6K5HlPYQx3ewTYrFNGnjY27gdDskbvQwBIY4ciJubdAgOiUbJ/PDkacZPPW5Eq1jB5Ag8qLz0nitGy2cQQ2l1Cx+SvrLkJso5RZe3/bmVkLan393fNbHn9LZkh1NNdlQevDCe04d44=";
+    const mainText = "Idoh7wi/16pPQVkCJfM6eTwc7SWb3CL+a2Xf3CLEpgxggkKHlePOOsbxiisFCCZI9i/HXdeFenwufmeQ/ovK1dp5/V28+naXTOv3YpOtFjXgz8yRpgn1aoTmxzrZK86R3BMJrlLD5acAfG2InW8DN+YoUZH4qrAafbXPFQ3RTNPWvprSxt9L6VQXxridTOh1eHabxkZvIZBl1+tVj7M1G04oHaySbJUsoaXWq5sesufG3BP7TWgzvkJSSAdXn7yX55TCN4pvBw0xE8qqTVGbG5XrzZf42qtKSGuzEggmJ1BEcbkIaLkz/Niwy7bSzs4snk+JVZwXY500wfMMv7gBKi/EWqbjKpSyNoFegCZEqCRGaf9BDIoCMJJkDrqjbP35pM6Sp1GLJfM3sgDXbXoBLHVETD6NV42jzanlyBi8iY7f+JPOp/jSCsURwntMDF8RPlKhgi/WZtNF/CPtsIuteBRe7Jh3reGBy/RnTVhNGEF5DIKobb+FpnI0K0dcuvdpAUUzQDcwPc8DMWNd9Z676KGnpXZWI6FUI7Bgf3z+2nSO+nOiSkvVoaN3jgymHqowV9qf3Y+ePlDF1ggDCpODMiX3EVpyX4g+D/wlD7A14XvkwtCdWqqeIsXsrcYmdA7z9aRqfiw+wJeDQqcJ8ZLcK60dz/S7Klu0A6K5HlPYQx3ewTYrFNGnjY27gdDskbvQwBIY4ciJubdAgOiUbJ/PDkacZPPW5Eq1jB5Ag8qLz0nitGy2cQQ2l1Cx+SvrLkJso5RZe3/bmVkLan393fNbHn9LZkh1NNdlQevDCe04d44=";
 </script>
 </body>
 </html>
